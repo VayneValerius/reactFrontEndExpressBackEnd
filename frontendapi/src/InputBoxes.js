@@ -36,7 +36,6 @@ export default class InputBoxes extends Component {
                     <input type="text" id="cardAttribute" value ={this.state.cardAttribute} placeholder="Card Attribute i.e Dark" onChange={this.handleChange("cardAttribute")}/>
                     <input type="text" id="cardType" value ={this.state.cardType} placeholder="Card Type i.e Magician" onChange={this.handleChange("cardType")}/>
                     <button id = "submitButton" onClick = {this.handleSubmit}>SUBMIT</button>
-
                 </form>
             </div>
         )

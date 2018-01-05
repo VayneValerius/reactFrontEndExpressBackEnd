@@ -4,36 +4,36 @@ import './App.css';
 import InputBoxes from './InputBoxes';
 
 import TableDisplay from "./TableDisplay";
-import {getCards, deleteCard, createCard} from "./api/cardapi.js"
+import { getCards, deleteCard, createCard } from "./api/cardapi.js"
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      cardList : [
+      cardList: [
         {
-            cardID: 1,
-            cardName: "Dank Magician",
-            cardLevel : 7,
-            cardAttribute : "Dark",
-            cardType : "Spellcaster"
+          cardID: 1,
+          cardName: "Dank Magician",
+          cardLevel: 7,
+          cardAttribute: "Dark",
+          cardType: "Spellcaster"
         },
-    
+
         {
-            cardID: 2,
-            cardName: "Dank Magician Grill",
-            cardLevel : 6,
-            cardAttribute : "Dark",
-            cardType : "Spellcaster"
+          cardID: 2,
+          cardName: "Dank Magician Grill",
+          cardLevel: 6,
+          cardAttribute: "Dark",
+          cardType: "Spellcaster"
         },
-    
+
         {
-            cardID: 3,
-            cardName: "Dank Rebellion",
-            cardLevel : 4,
-            cardAttribute : "Dark",
-            cardType : "Dragon"
+          cardID: 3,
+          cardName: "Dank Rebellion",
+          cardLevel: 4,
+          cardAttribute: "Dark",
+          cardType: "Dragon"
         }
       ]
     }
@@ -44,18 +44,29 @@ class App extends Component {
       let cardList = this.state.cardList;
       cardList.push({
         cardID: cardList.length + 1,
-        cardName : dataFromForm.cardName,
-        cardLevel : dataFromForm.cardLevel,
-        cardAttribute : dataFromForm.cardAttribute,
-        cardType : dataFromForm.cardType
+        cardName: dataFromForm.cardName,
+        cardLevel: dataFromForm.cardLevel,
+        cardAttribute: dataFromForm.cardAttribute,
+        cardType: dataFromForm.cardType
       });
       this.setState({ cardList });
     }
 
-    this.handleDeleteInParent = (cardSelected) => {
-      let cardList = this.state.cardList;
-      
-      this.setState(this.state({cardList}));
+    this.handleDeleteInParent = (cardIdToDelete) => {
+      const cardList = [...this.state.cardList];
+      cardList.splice(cardIdToDelete, 1);
+      this.setState({ cardList });
+    }
+
+    this.handleEditInParent = (cardIndex, newCard) => {
+      const cardList = [...this.state.cardList];
+      cardList[cardIndex].cardAttribute = newCard.cardAttribute
+      cardList[cardIndex].cardName = newCard.cardName
+      cardList[cardIndex].cardLevel = newCard.cardLevel
+      cardList[cardIndex].cardType = newCard.cardType
+      this.setState({ cardList })
+
+      console.log(this.state);
     }
 
   }
@@ -69,10 +80,9 @@ class App extends Component {
         <p className="App-intro">
           A Childrens Card Game Helper
         </p>
-        <div id = "componentBody">
-          <InputBoxes cardList={this.state.cardList} onSubmit={this.handleSubmitInParent}/>
-    
-          <TableDisplay cardList={this.state.cardList}/>
+        <div id="componentBody">
+          <InputBoxes cardList={this.state.cardList} onSubmit={this.handleSubmitInParent} />
+          <TableDisplay cardList={this.state.cardList} onDelete={this.handleDeleteInParent} onEdit={this.handleEditInParent} />
         </div>
       </div>
     );
