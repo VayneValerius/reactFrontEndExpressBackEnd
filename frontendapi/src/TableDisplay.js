@@ -62,7 +62,7 @@ export default class TableDisplay extends Component {
         if (!this.state.isEditable) {
             return (
                 <div>
-                    <table id="tableDisplay">
+                    <table id="tableDisplay" align="center">
                         <thead>
                             <td>Delete</td>
                             <td>ID</td>
@@ -70,17 +70,18 @@ export default class TableDisplay extends Component {
                             <td>Level/Rank</td>
                             <td>Attribute</td>
                             <td>Type</td>
+                            <td>Edit</td>
                         </thead>
                         {this.props.cardList.map((card, index) => {
                             return (
                                 <tr key={index}>
-                                    <td> <button onClick={this.handleDelete(index)}>Delete</button> </td>
+                                    <td> <button id="deleteButton" onClick={this.handleDelete(index)}>Delete</button> </td>
                                     <td>{card.cardID}</td>
                                     <td>{card.cardName}</td>
                                     <td>{card.cardLevel}</td>
                                     <td>{card.cardAttribute}</td>
                                     <td>{card.cardType}</td>
-                                    <td><button onClick={this.toggleEdit.bind(this, index)}>Edit</button></td>
+                                    <td><button id="editButton" onClick={this.toggleEdit.bind(this, index)}>Edit</button></td>
                                 </tr>
                             )
                         })
@@ -91,14 +92,14 @@ export default class TableDisplay extends Component {
             )
         } else {
             return (
-                <div>
+                <div id = "editCard" align="center">
                     <tr>
                         <td><input type="text" id="cardNameEdit" placeholder="Card Name" value={this.state.cardName} onChange={this.handleChange("cardName")} /></td>
                         <td><input type="text" id="cardLevelEdit" placeholder="Card Level" value={this.state.cardLevel} onChange={this.handleChange("cardLevel")} /></td>
                         <td><input type="text" id="cardAttributeEdit" placeholder="Card Attribute" value={this.state.cardAttribute} onChange={this.handleChange("cardAttribute")} /></td>
                         <td><input type="text" id="cardTypeEdit" placeholder="Card Type" value={this.state.cardType} onChange={this.handleChange("cardType")} /></td>
-                        <td> <button onClick={this.handleEdit}>Save</button>  </td>
-                        <td> <button onClick={this.toggleEdit}>Back</button>  </td>
+                        <td> <button id="saveButton" onClick={this.handleEdit}>Save</button>  </td>
+                        <td> <button  id="backButton" onClick={this.toggleEdit}>Back</button>  </td>
                     </tr>
                 </div>
             )

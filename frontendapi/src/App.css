@@ -10,10 +10,13 @@
 }
 
 .App-header {
-  background-color: #222;
+  background: url(images/gods.jpg);
+  background-size: 30%;
   height: 150px;
   padding: 20px;
   color: white;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  font-weight: bold;
   position: relative;
 }
 
@@ -28,9 +31,116 @@
   
 }
 
-#tableDisplay, th, td {
+#tableDisplay {
   text-align: center;
+  border: 2px solid black;
+  background-color: rgb(54, 0, 109) ;
+  padding: 1%;
+}
+
+td {
+  border: 2px solid black;
+}
+
+tr {
+  background-color: grey;
+  border: 2px solid black;
+}
+
+thead {
+  background-color: blueviolet;
+  border: 2px solid black;
+  font-weight: bold;
+
+}
+
+#componentBody{
+  background-color: rgb(124, 82, 165);
+}
+
+#inputBoxes{
+  padding: 20px;
+}
+
+#editCard {
+  padding: 20px;
+}
+
+#cardName, #cardType, #cardLevel, #cardAttribute {
+  background-color: grey;
   border: 1px solid black;
+  padding: 10px;
+}
+
+#deleteButton {
+    background-color:#740000;
+    border:1px solid #840000;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:13px;
+    font-weight:bold;
+    padding:6px 12px;
+    text-decoration:none;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+#editButton {
+  background-color:#84AD00;
+  border:1px solid #41BD11;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:13px;
+  font-weight:bold;
+  padding:6px 12px;
+  text-decoration:none;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+#saveButton {
+  background-color:rgb(128, 3, 185);
+  border:1px solid rgb(162, 0, 255);
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:13px;
+  font-weight:bold;
+  padding:6px 12px;
+  text-decoration:none;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+
+}
+
+#backButton {
+  background-color:rgb(21, 17, 255);
+  border:1px solid rgb(4, 0, 255);
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:13px;
+  font-weight:bold;
+  padding:6px 12px;
+  text-decoration:none;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+#submitButton {
+  background-color:rgb(255, 196, 0);
+  border:1px solid rgb(4, 0, 255);
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:13px;
+  font-weight:bold; 
+  padding:6px 12px;
+  text-decoration:none;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
 @keyframes App-logo-spin {

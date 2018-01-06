@@ -65,7 +65,6 @@ class App extends Component {
       cardList[cardIndex].cardLevel = newCard.cardLevel
       cardList[cardIndex].cardType = newCard.cardType
       this.setState({ cardList })
-
       console.log(this.state);
     }
 
